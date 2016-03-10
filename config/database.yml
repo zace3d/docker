@@ -84,3 +84,4 @@ production:
   username: <%= ENV['PG_ENV_POSTGRES_USER'] %>
   password: <%= ENV['PG_ENV_POSTGRES_PASSWORD'] %>
   host: <%= ENV['PG_PORT_5432_TCP_ADDR'] %>
+  port: <%= ENV['PG_PORT_5432_TCP_PORT'] %>

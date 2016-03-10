@@ -3,6 +3,8 @@
 # Select ubuntu as the base image
 FROM ruby:2.2.3
 
+MAINTAINER Edgar Z <edgar@factico.com.mx>
+
 # Install nginx, nodejs and curl
 RUN apt-get update -qq && apt-get install -y build-essential
 
