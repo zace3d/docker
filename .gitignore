@@ -33,4 +33,8 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
->>>>>>> dd8ae10eb788a314911540f66e79f5a3f13d0f81
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
