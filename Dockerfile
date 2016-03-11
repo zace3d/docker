@@ -6,7 +6,7 @@ FROM ruby:2.2.3
 MAINTAINER Edgar Z <edgar@factico.com.mx>
 
 # Install nginx, nodejs and curl
-RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update -q
 
 # POSTGRES
 RUN apt-get install -qy --force-yes libpq-dev
@@ -55,4 +55,4 @@ RUN bundle install --without development test
 EXPOSE 8080
 
 # Startup commands
-#CMD bundle exec rake db:create db:migrate assets:precompile && foreman start -f Procfile
+CMD bundle exec rake db:create db:migrate assets:precompile && foreman start -f Procfile
