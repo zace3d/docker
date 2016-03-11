@@ -55,4 +55,4 @@ RUN bundle install --without development test
 EXPOSE 8080
 
 # Startup commands
-CMD bundle exec rake db:create db:migrate assets:precompile && foreman start -f Procfile
+#CMD bundle exec rake db:create db:migrate assets:precompile && foreman start -f Procfile
