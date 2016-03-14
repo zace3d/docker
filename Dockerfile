@@ -1,14 +1,14 @@
-# Dockerfile for a Rails application using Nginx and Unicorn
+# Dockerfile for a Rails application using Nginx and Puma
 
 # Select ubuntu as the base image
-FROM ruby:2.2.3
+FROM seapy/ruby:2.3.0
 
 MAINTAINER Edgar Z <edgar@factico.com.mx>
 
-# Install nginx, nodejs and curl
+# Update
 RUN apt-get update -q
 
-# POSTGRES
+# Postgres
 RUN apt-get install -qy --force-yes libpq-dev
 
 # for a JS runtime
@@ -39,19 +39,20 @@ RUN gem install rails
 # Add configuration files in repository to filesystem
 ADD config/container/nginx-sites.conf /etc/nginx/sites-enabled/default
 
+#(required) Install Rails App
 # Add rails project to project directory
-ADD ./ /rails
+ADD ./ /docker
 
 # set WORKDIR
-WORKDIR /rails
-
-ENV RAILS_ENV production
-ENV PORT 8080
+WORKDIR /docker
 
 # bundle install
 RUN bundle install --without development test
 
-# Publish port 8080
+ENV RAILS_ENV production
+ENV PORT 8080
+
+#(required) nginx port number
 EXPOSE 8080
 
 # Startup commands
